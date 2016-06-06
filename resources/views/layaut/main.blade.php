@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html ng-app="PortalGescolar">
 
 <!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/ by HTTrack Website Copier/3.x [XR&CO'2008], Tue, 17 Feb 2015 16:05:39 GMT -->
 <head>
@@ -42,7 +41,7 @@
 
 </head>
 
-<body>
+<body ng-app="Controller">
 
     <div id="wrapper">
 

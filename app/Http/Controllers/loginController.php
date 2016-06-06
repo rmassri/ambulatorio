@@ -12,5 +12,8 @@ class loginController extends Controller
 		//dd("aqui estamos");die();
 		return view('layaut.login');
 	}
+	public function consulta(){
+		dd("aquiii"); die();
+	}
     //
 }

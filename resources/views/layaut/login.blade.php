@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  
-<!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/login-social.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 11:00:58 GMT -->
-<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,21 +20,16 @@
     <!-- THEME DEMO STYLES -->
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
 
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 
-  </head>
-
-  <body class="login">
-
+  <div class="login">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
           <div class="login-banner text-center">
             <h1><i class="fa fa-gears"></i> Pantalla de Administrador</h1>
           </div>
+          <div class="center-block" id="contenedor-mensajes"></div>
+<div class="container-fluid container-consultas center-block" >
           <div class="portlet portlet-green">
             <div class="portlet-heading login-heading">
               <div class="portlet-title">
@@ -55,11 +44,15 @@
               <form accept-charset="UTF-8" role="form">
                 <fieldset>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Usuario" name="email" type="text">
+                    <input class="form-control" placeholder="Usuario" name="email" type="text"> 
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Clave" name="password" type="password" value="">
+                    <input class="form-control" placeholder="Clave" name="password" type="password">
                   </div>
+
+                  <button id="btn-consultar" type="submit" class="btn btn-primary btn-md pull-right">
+        <i class="fa fa-search fa-fw"></i> Consultar
+    </button>
                   <div class="checkbox">
                     <label>
                       <input name="remember" type="checkbox" value="Remember Me"> Recuérdame
@@ -81,17 +74,19 @@
     <!-- GLOBAL SCRIPTS -->
     <script src="{{ asset('ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}"></script>
     <script src="{{ asset('js/plugins/bootstrap/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+      <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
     <!-- HISRC Retina Images -->
+<script src="{{asset('js/angular/angular-recaptcha.min.js') }}"></script>
+<script src="{{asset('js/angular/angular.min.js.map') }}"></script> 
+<script src="{{asset('js/angular/pikaday.js') }}"></script>
+<script src="{{asset('js/angular/pikaday-angualr.js'  ) }}"></script>
+
+           <script src="{{ asset('js/angular/angular.min.js') }}"></script>
+                    <script src="{{ asset('js/angular/controller/consultaLogin.js') }}"></script> 
+
     <script src="{{ asset('js/plugins/hisrc/hisrc.js') }}"></script>
 
     <!-- PAGE LEVEL PLUGIN SCRIPTS -->
 
     <!-- THEME SCRIPTS -->
-    <script src="js/flex.js"></script>
-
-  </body>
-
-
-<!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/login-social.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2016 11:00:58 GMT -->
-</html>
+</div>

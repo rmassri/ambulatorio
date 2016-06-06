@@ -12,7 +12,6 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-
     Route::get('/', function () {
         return view('welcome');
     });
@@ -38,7 +37,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
   Route::group(['prefix' => 'admin'],function(){
-    Route::resource('usuario', 'UsuarioController');
+    Route::resource('usuario', 'usuarioController');
 });
 
 
@@ -46,7 +45,13 @@ Route::group(['middleware' => ['web']], function () {
   Route::group(['prefix' => 'login'],function(){
   Route::get('main',[
        'uses'=>'loginController@index',
+       //'uses'=>'loginController@consulta',
        'as' =>'loginMain'
+    ]);
+    Route::get('principal',[
+       'uses'=>'loginController@consulta',
+       //'uses'=>'loginController@consulta',
+       'as' =>'consultaLogin'
     ]);
 });
 
