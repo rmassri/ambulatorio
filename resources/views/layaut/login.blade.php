@@ -1,4 +1,4 @@
-
+<html ng-app="consultaUsuario">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -21,12 +21,14 @@
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
 
 
+
+<div class="container-fluid container-consultas center-block" ng-controller="ConsultasController">
   <div class="login">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
           <div class="login-banner text-center">
-            <h1><i class="fa fa-gears"></i> Pantalla de Administrador</h1>
+            <h1><i class="fa fa-gears"></i> Pantalla de Login</h1>
           </div>
           <div class="center-block" id="contenedor-mensajes"></div>
 <div class="container-fluid container-consultas center-block" >
@@ -44,14 +46,14 @@
               <form accept-charset="UTF-8" role="form">
                 <fieldset>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Usuario" name="email" type="text"> 
+                    <input class="form-control" placeholder="Usuario" name="email" type="text" ng-model="form_data.usuario"> 
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Clave" name="password" type="password">
+                    <input class="form-control" placeholder="Clave" name="password" type="password" ng-model="form_data.clave">
                   </div>
 
-                  <button id="btn-consultar" type="submit" class="btn btn-primary btn-md pull-right">
-        <i class="fa fa-search fa-fw"></i> Consultar
+                  <button id="btn-consultar" type="submit" class="btn btn-primary btn-md pull-right" ng-click="consultar()">
+        <i class="fa fa-search fa-fw"></i> Ingresar
     </button>
                   <div class="checkbox">
                     <label>
@@ -70,23 +72,28 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
+    </div>
+    </html>
 
     <!-- GLOBAL SCRIPTS -->
     <script src="{{ asset('ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}"></script>
+       <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js') }}"></script>
     <script src="{{ asset('js/plugins/bootstrap/bootstrap.min.js') }}"></script>
-      <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-    <!-- HISRC Retina Images -->
-<script src="{{asset('js/angular/angular-recaptcha.min.js') }}"></script>
+        <script src="{{asset('js/angular/angular-recaptcha.min.js') }}"></script>
 <script src="{{asset('js/angular/angular.min.js.map') }}"></script> 
 <script src="{{asset('js/angular/pikaday.js') }}"></script>
-<script src="{{asset('js/angular/pikaday-angualr.js'  ) }}"></script>
+<script src="{{asset('js/angular/pikaday-angular.js'  ) }}"></script>
 
-           <script src="{{ asset('js/angular/angular.min.js') }}"></script>
                     <script src="{{ asset('js/angular/controller/consultaLogin.js') }}"></script> 
+      <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- HISRC Retina Images -->
+
 
     <script src="{{ asset('js/plugins/hisrc/hisrc.js') }}"></script>
 
     <!-- PAGE LEVEL PLUGIN SCRIPTS -->
 
     <!-- THEME SCRIPTS -->
-</div>
+

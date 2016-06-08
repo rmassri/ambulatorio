@@ -48,8 +48,8 @@ Route::group(['middleware' => ['web']], function () {
        //'uses'=>'loginController@consulta',
        'as' =>'loginMain'
     ]);
-    Route::get('principal',[
-       'uses'=>'loginController@consulta',
+    Route::post('principal',[
+       'uses'=>'loginController@postConsulta',
        //'uses'=>'loginController@consulta',
        'as' =>'consultaLogin'
     ]);

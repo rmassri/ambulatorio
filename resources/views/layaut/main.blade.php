@@ -1,4 +1,4 @@
-<html ng-app="PortalGescolar">
+<html>
 
 <!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/ by HTTrack Website Copier/3.x [XR&CO'2008], Tue, 17 Feb 2015 16:05:39 GMT -->
 <head>
@@ -9,7 +9,6 @@
     <meta name="author" content="">
 
     <title>Ambulatorio Carri</title>
-
     <!-- PACE LOAD BAR PLUGIN - This creates the subtle load bar effect at the top of the page. -->
     <link href="{{ asset('css/plugins/css_pace/pace.css') }}" rel="stylesheet">
     <script src="{{ asset('js/plugins/css_pace/pace.js') }}"></script>
@@ -289,6 +288,7 @@
     <script src="{{ asset('js/plugins/easypiechart/jquery.easypiechart.min.js') }}" type="text/javascript"></script>
     <!-- DataTables -->    <!-- THEME SCRIPTS -->
     <script src="{{ asset('js/flex.js') }}" type="text/javascript"></script>
+
 
 </body>
 
