@@ -86,7 +86,7 @@
                                 '<i class="fa fa-check fa-lg fa-fw"></i>' + response.mensaje + '</div>' +
                                 '</div>');
                                 $timeout(function(){
-                            $window.location.href = 'login/main';
+                            $window.location.href = '/admin/usuario/create';
                         },1000);
                         }
 

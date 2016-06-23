@@ -1,5 +1,5 @@
 
-@extends('persona.view')
+@extends('persona.main')
 @section('title', 'Page Title')
 
 @section('sidebar')
@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+ <div ng-controller="GuardarUsuarioController">
 
 <ol class="breadcrumb" style="width: 89%; margin-left: 12px">
                                 <li><i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
@@ -22,6 +23,7 @@
                                         <div class="portlet-title">
                                             <h4>Registrar Persona</h4>
                                         </div>
+
 
                                     
                                         <div class="portlet-widgets">
@@ -39,6 +41,7 @@
                                     </li>
                                 </ul>
                                                 <div class="form-group">
+
 
 
 {!! Form::open(['route'=>'admin.persona.create','method'=>'POST']) !!}
@@ -60,11 +63,12 @@
  <div class="form-group">
 <div class="col-sm-12">
  <div class="form-group"> </div>
-{!! Form::submit('Registrar',['class'=>'btn btn-primary']); !!}
+{!! Form::submit('Registrar',['class'=>'btn btn-primary', ng-click="guardar()"]); !!}
 
         <div id="profile-settings" class="tab-pane fade">
 holaaaa
            </div>
+</div>
 </div>
 </div>
 </div>

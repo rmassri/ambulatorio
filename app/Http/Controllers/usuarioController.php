@@ -11,6 +11,7 @@ class usuarioController extends Controller
 
 
 	public function  create(){
+		//var_dump("aquiii"); die();
 		return view('userGroup.usuario');
 	}
     //

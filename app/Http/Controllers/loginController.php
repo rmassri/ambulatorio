@@ -42,11 +42,11 @@ return response()->json(["mensaje" => "La clave es incorrecta",
                 $response = [];
                 return Response::json($response);
             }else{
-/*return response()->json(["mensaje" => "El usuario se ha logeado de forma correcta",
+                   return response()->json(["mensaje" => "El usuario se ha logeado de forma correcta",
                     "resultado" => false,
                     "statusCode" => "LOGEO_EXITOSO"]);
-                $response = [];*/
-         return redirect('login/main');
+                $response = [];
+         //return redirect('login/main');
 
                 return Response::json($response);
             }

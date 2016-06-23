@@ -1,5 +1,5 @@
 
-@extends('persona.view')
+@extends('layaut.main')
 @section('title', 'Page Title')
 
 @section('sidebar')
@@ -10,6 +10,7 @@
 
 @section('content')
 
+ <div ng-controller="GuardarUsuarioController">
 <ol class="breadcrumb" style="width: 89%; margin-left: 12px">
                                 <li><i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
                                 </li>
@@ -135,7 +136,7 @@
  <div class="form-group">
 <div class="col-sm-11">
  <div class="form-group"> </div>
-{!! Form::submit('Registrar',['class'=>'btn btn-success']); !!}
+{!! Form::submit('Registrar',['class'=>'btn btn-success' ]); !!}
 </div>
 </div>
 
@@ -149,6 +150,7 @@
 </div>
 
 
+</div>
 </div>
 </div>
 </div>
