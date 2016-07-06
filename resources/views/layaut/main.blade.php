@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/ by HTTrack Website Copier/3.x [XR&CO'2008], Tue, 17 Feb 2015 16:05:39 GMT -->
 <head>
 
@@ -289,14 +287,10 @@
     <!-- Easy Pie Chart -->
     <script src="{{ asset('js/plugins/easypiechart/jquery.easypiechart.min.js') }}" type="text/javascript"></script>
     <!-- DataTables -->    <!-- THEME SCRIPTS -->
-    <script src="{{ asset('js/flex.js') }}" type="text/javascript"></script>
-            <script src="{{asset('js/angular/angular-recaptcha.min.js') }}"></script>
-<script src="{{asset('js/angular/angular.min.js.map') }}"></script> 
-<script src="{{asset('js/angular/pikaday.js') }}"></script>
-<script src="{{asset('js/angular/pikaday-angular.js'  ) }}"></script>
-
-                    <script src="{{ asset('js/angular/controller/usuario.js') }}"></script> 
-      <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('js/flex.js') }}" type="text/javascript"></script>
+<script src="{{asset('js/angular/angular.min.js') }}"></script> 
+<script src="{{ asset('js/angular/controller/usuario.js') }}"></script> 
+<script src="{{asset('js/angular/app/aplicacion.js') }}"></script> 
 
 </body>
 

@@ -11,7 +11,6 @@
 @section('content')
 <html ng-app="guardarUsario">
 <head>
-       <script src="{{ asset('js/angular/angular.min.js') }}"></script>
 </head>
 
 <ol class="breadcrumb" style="width: 89%; margin-left: 12px">
@@ -35,7 +34,6 @@
                                         <div class="portlet-body" style="height:400px;">
 
 <div ng-controller="GuardarUsuarioController">
-{!! Form::open(['route'=>'admin.persona.create','method'=>'POST']) !!}
 
 <div class="form-group">
 <div class="col-sm-4">
@@ -164,9 +162,4 @@
 </div>
 </html>
 
-
-
-
-
-{!! Form::close() !!}
 @endsection

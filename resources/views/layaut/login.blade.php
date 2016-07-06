@@ -76,15 +76,14 @@
     </div>
     </div>
     </html>
-
+<script src="{{asset('js/angular/jquery.min.js')}}"> </script>
+<script src="{{asset('js/angular/bootstrap.min.js')}}"> </script>
+<script src="{{asset('js/angular/angular.min.js')}}"> </script>
+<script src="{{asset('js/angular/moment.min.js')}}"> </script>
+<script src="{{asset('js/angular/pikaday.js')}}"> </script>
+<script src="{{asset('js/angular/pikaday-angular.js')}}"> </script>
+<script src="{{asset('js/angular/angular-recaptcha.min.js')}}"></script>
     <!-- GLOBAL SCRIPTS -->
-    <script src="{{ asset('ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}"></script>
-       <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/bootstrap/bootstrap.min.js') }}"></script>
-        <script src="{{asset('js/angular/angular-recaptcha.min.js') }}"></script>
-<script src="{{asset('js/angular/angular.min.js.map') }}"></script> 
-<script src="{{asset('js/angular/pikaday.js') }}"></script>
-<script src="{{asset('js/angular/pikaday-angular.js'  ) }}"></script>
 
                     <script src="{{ asset('js/angular/controller/consultaLogin.js') }}"></script> 
       <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>

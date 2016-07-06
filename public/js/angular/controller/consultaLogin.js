@@ -20,8 +20,10 @@
 
         //Funcion para validar la cedula introducida por el usuario
         var validar_usuario = function (_value_usuario, _value_clave) {
+
             //Verificamos que la varibale haya sido declarada en el scope
             if (typeof _value_usuario === 'undefined') {
+
                 angular.element('#contenedor-mensajes').html('<div class="alert alert-warning">' +
                     '<div class="alert-link">' +
                     '<i class="fa fa-exclamation-circle fa-lg fa-fw"></i>' + "El campo usuario no puede quedar en blanco" + '</div>' +
@@ -29,27 +31,29 @@
                 return false;
             }
             if (typeof _value_clave === 'undefined') {
+                
                 angular.element('#contenedor-mensajes').html('<div class="alert alert-warning">' +
                     '<div class="alert-link">' +
                     '<i class="fa fa-exclamation-circle fa-lg fa-fw"></i>' + "El campo clave no puede quedar en blanco" + '</div>' +
                     '</div>');
                 return false;
             }
-
+//alert("aquii");
             return true;
         };
 
 
         // Funcion para consultar datos introducidos en el formulario
         $scope.consultar = function () {
+            //alert($scope.form_data.usuario);
             if (validar_usuario($scope.form_data.usuario, $scope.form_data.clave)) {
+                //alert("aquii");
                 //Se activa el spin de cargando
                 angular.element('#btn-consultar')
-                    .html('<i class="fa fa-spinner fa-spin fa-lg fa-fw"></i> Consultado...')
-                    .prop('disabled', true);
+                    .html('<i class="fa fa-spinner fa-spin fa-lg fa-fw"></i> Consultado...');
+                    //.prop('disabled', true);
                 //Se le agrego un headers al $http porque se necesita enviar el response del recaptcha y es muy grande
                 //Por defecto el $http envia sus datos por aplication/json
-
                 $http({
                     method: 'POST',
                     url: '/login/principal',
@@ -60,6 +64,7 @@
                 }).then(
                     function (data) {
                         var response = data.data;
+                        //alert(response);
                         if (response.statusCode == "ERROR_CAMPOS_VACIOS") {
                             angular.element('#contenedor-mensajes').html('<div class="alert alert-warning">' +
                                 '<div class="alert-link">' +
