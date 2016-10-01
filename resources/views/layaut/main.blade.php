@@ -1,4 +1,4 @@
-<html lang="en">
+<html ng-app="modulosAplicacion">
 <!-- Mirrored from themes.startbootstrap.com/flex-admin-v1.2/ by HTTrack Website Copier/3.x [XR&CO'2008], Tue, 17 Feb 2015 16:05:39 GMT -->
 <head>
 

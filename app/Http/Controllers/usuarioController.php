@@ -16,6 +16,9 @@ class usuarioController extends Controller
 	}
 
 	public function store(Request $request){
+		$resultado=$request->input('form');
+		return response()->json(['resultado'=>$resultado]);
+		//var_dump($resultado);die();
 		//$resultado=json_decode($request->input('form'),true);
 		//var_dump($resultado); die();
 		/*response()->json(["mensaje" => "El usuario es incorrecto",

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<html ng-app="guardarUsario">
+<html>
 <head>
 </head>
 

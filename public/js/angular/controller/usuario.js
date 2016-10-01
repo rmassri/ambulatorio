@@ -1,6 +1,6 @@
 //alert("aquii");
 (function(){
-	angular.module('guardarUsario',[]).config(function($interpolateProvider) {
+	angular.module('modulosAplicacion',[]).config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('//');
     $interpolateProvider.endSymbol('//');
 })
