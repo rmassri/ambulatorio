@@ -223,6 +223,8 @@
             This is the master sidebar.
         @show
 
+        
+
         <div class="container" style="margin-left: 250px; margin-top: 30px;">
             @yield('content')
         </div>
@@ -291,6 +293,7 @@
 <script src="{{asset('js/angular/angular.min.js') }}"></script> 
 <script src="{{ asset('js/angular/controller/usuario.js') }}"></script> 
 <script src="{{asset('js/angular/app/aplicacion.js') }}"></script> 
+<script src="{{asset('js/angular/maskedin.js')}}"></script> 
 
 </body>
 

@@ -12,149 +12,126 @@
 <html>
 <head>
 </head>
-
 <ol class="breadcrumb" style="width: 89%; margin-left: 12px">
-                                <li><i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
-                                </li>
-                                <li class="active">Formulario de Usuario</li>
-                            </ol>
+    <li> <i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
+    </li>
+    <li class="active">Formulario de Usuario</li>
+</ol>
 
 <div class="col-lg-11">
-                                <div class="portlet portlet-red">
-                          <div class="portlet-heading">
-                                        <div class="portlet-title">
-                                            <h4>Registrar Usuario</h4>
-                                        </div>
-                                        <div class="portlet-widgets">
-                                            <a href="#formControls" data-parent="#accordion" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="panel-collapse in" id="formControls" style="height: auto;">
-                                        <div class="portlet-body" style="height:400px;">
+<div class="portlet portlet-red">
+    <div class="portlet-heading">
+        <div class="portlet-title">
+        <h4>Registrar Usuario</h4>
+        </div>
+        <div class="portlet-widgets">
+        <a href="#formControls" data-parent="#accordion" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+<div class="panel-collapse in" id="formControls" style="height: auto;">
+<div class="portlet-body" style="height:auto;">
 
 <div ng-controller="GuardarUsuarioController">
 
-<div class="form-group">
-<div class="col-sm-4">
-{!! Form::label('cedula','Cedula',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('cedula',null,['class'=>'form-control','placeholder'=>'Cédula','required','ng-model'=>'dataForm.cedula']) !!}
+<div class="col-md-12">
+<label ng-show="mostrarMensajeExito" class="text-success">//mostrarMensajeExito// </label>
 </div>
-</div>
-
-
- <div class="form-group">
-<div class="col-sm-4">
-{!! Form::Label('nombre','Nombre',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre','required','ng-model'=>'dataForm.nombre']) !!}
-</div>
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Cédula</label>
+    <input type="text" name="cedula" class="form-control" ng-model="dataForm.cedula" placeholder="Cédula">
+     <label ng-show="mostrarCedula" class="text-danger">//mostrarCedula// </label>
 </div>
 
-<div class="form-group">
-<div class="col-sm-4">
-{!! Form::label('apellido','Apellido',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('apellido',null,['class'=>'form-control','placeholder'=>'Apellido','required','ng-model'=>'dataForm.apellido']) !!}
- </div>
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Nombre</label>
+    <input type="text" name="nombre" class="form-control" ng-model="dataForm.nombre" placeholder="nombre">
+    <label ng-show="mostrarNombre" class="text-danger">//mostrarNombre// </label>
 </div>
 
-
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('telefono fijo','Telefono Fijo',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('telefono_fijo',null,['class'=>'form-control','placeholder'=>'Telefono Fijo','required','ng-model'=>'dataForm.telefono_fijo']) !!}
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Apellido</label>
+    <input type="text" name="apelido" class="form-control" ng-model="dataForm.apellido" placeholder="Apellido">
+     <label ng-show="mostrarApellido" class="text-danger">//mostrarApellido// </label>
 </div>
+<div class="row"> </div>
+
+
+<div class="col-md-4">
+    <label class="col-md-12 control-label">Telefono Fijo</label>
+    <input type="text" name="telefono_fijo" class="form-control" ng-model="dataForm.telefono_fijo" placeholder="telefono_fijo" mask='9999-999-99-99'>
+     <label ng-show="mostrarTelefonoFijo" class="text-danger">//mostrarTelefonoFijo// </label>
 </div>
 
 
- <div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::Label('telefono_celular','Telefono Celular',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('telefono_celular',null,['class'=>'form-control','placeholder'=>'Telefono Celular','required','ng-model'=>'dataForm.telefono_celular']) !!}
-</div>
+<div class="form-group col-md-4">
+    <label class="control-label col-md-12">Telefono Celular</label>
+    <input type="text" name="telefono_celular" class="form-control" ng-model="dataForm.telefono_celular" placeholder="telefono_celular" mask='9999-999-99-99'>
+     <label ng-show="mostrarTelefonoCelular" class="text-danger">//mostrarTelefonoCelular// </label>
 </div>
 
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('correo','Correo',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::email('correo',null,['class'=>'form-control','placeholder'=>'Correo','required','ng-model'=>'dataForm.correo']) !!}
- </div>
-</div>
-
- <div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::Label('estado','Estado',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::select('estado',['1'=>'Miranda','2'=>'Distrito Capital'],null,['class'=>'form-control','placeholder'=>'Estado','required','ng-model'=>'dataForm.estado']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('grupo','grupo',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::select('grupo',['1'=>'Administrador','2'=>'Coordinador'],null,['class'=>'form-control','placeholder'=>'grupo','required','ng-model'=>'dataForm.grupo']) !!}
- </div>
-</div>
-
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('usuario','Usuario',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('usuario',null,['class'=>'form-control','placeholder'=>'Usuario','required','ng-model'=>'dataForm.usuario']) !!}
- </div>
-</div>
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('clave','Clave',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('clave',null,['class'=>'form-control','placeholder'=>'Clave','required','ng-model'=>'dataForm.clave']) !!}
- </div>
-</div>
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('repetir_clave','Repetir Clave',['class'=>'col-sm-12 control-label']) !!}
-{!! Form::text('repetir_clave',null,['class'=>'form-control','placeholder'=>'Repetir Clave','required','ng-model'=>'dataForm.repetir_clave']) !!}
- </div>
-</div>
-
-<div class="form-group">
-<div class="col-sm-4">
-<div class="form-group"> </div>
-{!! Form::label('estatus','Estatus',[ 'class'=>'col-sm-12 control-label']) !!}
-{!! Form::select('estatus',['1'=>'Activo','2'=>'Inactivo','3'=>'En Espera De Activación'],null,['class'=>'form-control','placeholder'=>'grupo','required','ng-model'=>'dataForm.estatus']) !!}
- </div>
-</div>
-
-
- <div class="form-group">
-<div class="col-sm-11">
- <div class="form-group"> </div>
-{!! Form::submit('Registrar',['class'=>'btn btn-success','ng-click'=>'guardarUsuario()']); !!}
-</div>
-</div>
-
- 
-//mensaje//
+<div class="col-md-4 form-group">
+    <label class="col-md-12 control-label">Correo</label>
+    <input type="text" name="correo" class="form-control" ng-model="dataForm.correo" placeholder="correo">
+     <label ng-show="mostrarCorreo" class="text-danger">//mostrarCorreo// </label>
  </div>
 
- <div class="form-group">
-<div class="col-sm-1">
- <div class="form-group"> </div>
-<a href="">
-     <span class="btn btn-danger"> volver </span>
-</a>
+<div class="row"> </div>
+
+<div class="col-md-4 form-group">
+    <label class="col-md-12 control-label">Estado</label>
+    <input type="text" name="estado" class="form-control" ng-model="dataForm.estado" placeholder="Estado">
+     <label ng-show="mostrarEstado" class="text-danger">//mostrarEstado// </label>
 </div>
+
+<div class="col-md-4 form-group">
+    <label class="col-md-12 control-label">Grupo de Usuario</label>
+    <input type="text" name="grupo" class="form-control" ng-model="dataForm.grupo" placeholder="Grupo">
+     <label ng-show="mostrarGrupo" class="text-danger">//mostrarGrupo// </label>
 </div>
 
 
+<div class="col-md-4 form-group">
+    <label class="col-md-12 control-label">Usuario</label>
+    <input type="text" name="usuario" class="form-control" ng-model="dataForm.usuario" placeholder="Usuario">
+     <label ng-show="mostrarUsuario" class="text-danger">//mostrarGrupo// </label>
+</div>
+
+<div class="row"> </div>
+
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Clave</label>
+    <input type="text" name="clave" class="form-control" ng-model="dataForm.clave" placeholder="Clave">
+     <label ng-show="mostrarClave" class="text-danger">//mostrarClave// </label>
+</div>
+
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Repetir Clave</label>
+    <input type="text" name="repetir_clave" class="form-control" ng-model="dataForm.repetir_clave" placeholder="Rpetir Clave">
+     <label ng-show="mostrarRepetirClave" class="text-danger">//mostrarRepetirClave// </label>
+</div>
+
+<div class="form-group col-md-4">
+    <label class="col-md-12 control-label">Estatus</label>
+    <select name="estatus" class="form-control" ng-model="dataForm.estatus">
+        <option value="">Seleccione</option>
+        <option value="1">Activo</option>
+        <option value="2">Inactivo</option>
+        <option value="3">En Espera de Activar</option>
+    </select>
+     <label ng-show="mostrarEstatus" class="text-danger">//mostrarEstatus// </label>
+</div>
+
+<div class="row"> </div>
+<div class="form-group col-md-6 text-left">
+    <a href="www.google.com">
+         <span class="btn btn-danger"> volver </span>
+    </a>
+</div>
+
+ <div class="form-group col-md-6 text-right">
+ <button ng-click="guardarUsuario()" class="btn btn-success">Registrar</button>
+</div>
 </div>
 </div>
 </div>
