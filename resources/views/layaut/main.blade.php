@@ -10,6 +10,7 @@
     <title>Ambulatorio Carri</title>
 
     <!-- PACE LOAD BAR PLUGIN - This creates the subtle load bar effect at the top of the page. -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/plugins/css_pace/pace.css') }}" rel="stylesheet">
     <script src="{{ asset('js/plugins/css_pace/pace.js') }}"></script>
 
@@ -18,6 +19,7 @@
     <link href='{{ asset('fonts.googleapis.com/css3ef8.css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic') }}' rel="stylesheet" type="text/css">
     <link href='{{ asset('fonts.googleapis.com/css5c84.css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') }}' rel="stylesheet" type="text/css">
     <link href="{{ asset('icons/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+           <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
 
     <!-- PAGE LEVEL PLUGIN STYLES -->
     <link href="{{ asset('css/plugins/messenger/messenger.css') }}" rel="stylesheet">
@@ -33,6 +35,7 @@
     <!-- THEME DEMO STYLES - Use these styles for reference if needed. Otherwise they can be deleted. -->
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
 
+
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
@@ -40,7 +43,9 @@
 
 </head>
 
-<body>
+<body ng-controller="GuardarUsuarioController">
+
+//nombre//
 
     <div id="wrapper">
 
@@ -137,7 +142,7 @@
                     <!-- end SIDE NAV SEARCH -->
                     <!-- begin DASHBOARD LINK -->
                     <li>
-                        <a class="active" href="index-2.html">
+                        <a class="active" href="#">
                             <i class="fa fa-dashboard"></i> Inicio
                         </a>
                     </li>
@@ -163,7 +168,7 @@
                         </a>
                         <ul class="collapse nav" id="charts">
                             <li>
-                                <a href="/userGroups/usuario/">
+                                <a href="#listado_user">
                                     <i class="fa fa-angle-double-right"></i> Usuario
                                 </a>
                             </li>
@@ -225,9 +230,12 @@
 
         
 
-        <div class="container" style="margin-left: 250px; margin-top: 30px;">
+        <div class="container" ng-view style="margin-left: 250px; margin-top: 150px;">
             @yield('content')
         </div>
+
+
+        
         <!-- /.navbar-side -->
         <!-- end SIDE NAVIGATION -->
 
@@ -291,9 +299,17 @@
     <!-- DataTables -->    <!-- THEME SCRIPTS -->
 <script src="{{ asset('js/flex.js') }}" type="text/javascript"></script>
 <script src="{{asset('js/angular/angular.min.js') }}"></script> 
+<script src="{{asset('js/angular/route.js')}}"></script> 
+<script src="{{asset('js/angular/resourse.js')}}"></script>
 <script src="{{ asset('js/angular/controller/usuario.js') }}"></script> 
 <script src="{{asset('js/angular/app/aplicacion.js') }}"></script> 
 <script src="{{asset('js/angular/maskedin.js')}}"></script> 
+
+
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+
+ 
+
 
 </body>
 

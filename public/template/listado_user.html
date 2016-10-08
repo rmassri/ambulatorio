@@ -1,0 +1,86 @@
+
+
+<div class="col-md-10 text-right">
+<a href="#create_user">
+<button class="btn btn-success">Registrar Usuario</button>
+</a>
+</div>
+<div class="col-lg-10">
+<br>
+<ol class="breadcrumb ng-scope col-md-12">
+    <li> <i class="fa fa-dashboard"></i>  <a href="#">Inicio</a>
+    </li>
+    <li class="active">Listado de Usuario</li>
+</ol>
+<div class="row"> </div>
+                        <div class="portlet portlet-green">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Listado de Usuarios</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-body">
+                            <div class="col-md-12 text-right">
+                            <label>buscar:<input type="text" aria-controls="map-table-example" ng-model="filtro"> </label>
+                            </div>
+                            <div class="row"> </div>
+
+                                <div class="table-responsive">
+                                    <div class="table table-striped" ng-repeat="listado in listado.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:filtro">
+                                    <div class="col-md-2">
+                                    <label class="col-md-12"> Nombre </label>
+                                    <div class="col-md-12">
+                                    //listado.nombre//
+                                    </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <label class="col-md-12"> Apellido </label>
+                                    <div class="col-md-12">
+                                    //listado.apellido//
+                                    </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <label class="col-md-12 control-label"> Cédula </label>
+                                    <div class="col-md-12">
+                                    //listado.cedula//
+                                    </div>
+                                    </div>
+                                     <div class="col-md-2">
+                                     <label class="col-md-12"> Telefono Celular </label>
+                                     <div class="col-md-12">
+                                    //listado.telefono_celular//
+                                    </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                    <label class="col-md-12"> Telefono Fijo </label>
+                                    <div class="col-md-12">
+                                    //listado.telefono_fijo//
+                                    </div>
+                                    </div>
+                                    <div class="row"></div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.portlet -->
+                    </div>
+                    <div class="row"></div>
+                    <div class="col-md-10 text-right">
+                    Cantidad
+ <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select>
+ </div>
+ <div class="col-md-10 text-right">
+    <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+    <pre class="text-center">Seleccion de pagina numero: //currentPage//</pre>
+    <button class="btn btn-info" ng-click="setPage(3)">Presente: 3</button>
+
+    <hr />
+    <h4>Pagina</h4>
+    <pager total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></pager>
+
+
+  </div>
+    </div>

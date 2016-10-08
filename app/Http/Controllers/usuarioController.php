@@ -16,6 +16,11 @@ class usuarioController extends Controller
 		return view('userGroup.usuario');
 	}
 
+		public function  index(Request $request){
+		return view('layaut.main');
+	}
+
+
 	public function store(Request $request){
 		//$error[]='';
 		$request = json_decode(file_get_contents('php://input'), true);

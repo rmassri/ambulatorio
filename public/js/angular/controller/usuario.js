@@ -1,16 +1,114 @@
 //alert("aquii");
 (function(){
-	angular.module('modulosAplicacion',['ngMask']).config(function($interpolateProvider) {
+	angular.module('modulosAplicacion',['ngMask','ngRoute','ui.bootstrap']).config(function($interpolateProvider,$routeProvider,$locationProvider) {
     $interpolateProvider.startSymbol('//');
     $interpolateProvider.endSymbol('//');
-})
-	.controller('GuardarUsuarioController', GuardarUsuarioController);
-	GuardarUsuarioController.$inject=['$scope','$http','$window'];
-	function GuardarUsuarioController($scope,$http,$window){
+    //$locationProvider.html5Mode(true);
+    $routeProvider.
+    when('/route', {
+        templateUrl: '/template/route.html',
+        controller: 'GuardarUsuarioController'
+    }).when('/create_user', {
+        templateUrl: '/template/create_user.html',
+        controller: 'miController'
+    }).when('/listado_user', {
+        templateUrl: '/template/listado_user.html',
+        controller: 'listadoUsuario'
+    }).otherwise({
+        redirectTo: '/'
+    })
+    }).controller('miController',function($scope){
 
+    }).controller('listadoUsuario',function($scope){
+   
+        $scope.listado=[
+        {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+      {
+        nombre:"Richard",
+        apellido:"Massri",
+        cedula:20413974,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Los Vecinos"
+    },
+    {
+        nombre:"Pedro",
+        apellido:"Garcias",
+        cedula:20413975,
+        telefono_celular:04142829420,
+        telefono_fijo:02123833551,
+        direccion:"Macarena"
+    }];
+    //console.log(listado);
+       $scope.viewby = 3;
+  $scope.totalItems = $scope.listado.length;
+  $scope.currentPage = 4;
+  $scope.itemsPerPage = $scope.viewby;
+  $scope.maxSize = 5;
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
 
+  $scope.pageChanged = function() {
+    console.log('Page changed to: ' + $scope.currentPage);
+  };
+
+$scope.setItemsPerPage = function(num) {
+  $scope.itemsPerPage = num;
+  $scope.currentPage = 1; //reset to first paghe
+}
+
+}).controller('GuardarUsuarioController',function($scope,$http,$window){
+    $scope.nombre="holaaa";
+        console.log($scope.nombre);
         $scope.$watch('dataForm.correo',function(nuevo,anterior){
-            console.log(nuevo);
             if(!nuevo) return;
             if(!/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/.test(nuevo)){
                 $scope.mostrarCorreo="El correo es invalido";
@@ -132,6 +230,6 @@
                 });
                 }
 
-                };
+                });
 
                 })();
