@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGrupoUsuario extends Migration
+class CreateEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class AddGrupoUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_usuario', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre',255);
-            //$table->int('nivel');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class AddGrupoUsuario extends Migration
      */
     public function down()
     {
-        Schema::drop('grupo_usuario');
+        Schema::drop('estados');
     }
 }
