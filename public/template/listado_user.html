@@ -22,14 +22,12 @@
                             </div>
                             <div class="portlet-body">
                             <div class="col-md-12 text-right">
-                            <label>buscar:<input type="text" aria-controls="map-table-example" ng-model="filtro"> </label>
+                            <label>buscar:<input type="text" aria-controls="map-table-example" class="search-query" ng-model="filtro"> </label>
                             </div>
-                            <div class="row"> </div>
-
-                                <div class="table-responsive">
-                                    <div class="table table-striped" ng-repeat="listado in listado.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:filtro">
+                            <div class="row table"> 
+                                    <div class="table table-hover table table-striped" ng-repeat="listado in listado.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:filtro">
                                     <div class="col-md-2">
-                                    <label class="col-md-12"> Nombre </label>
+                                    <label class="col-md-12 table table-hover"> Nombre </label>
                                     <div class="col-md-12">
                                     //listado.nombre//
                                     </div>
@@ -84,3 +82,4 @@
 
   </div>
     </div>
+

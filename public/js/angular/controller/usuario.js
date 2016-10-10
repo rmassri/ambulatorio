@@ -3,6 +3,7 @@
 	angular.module('modulosAplicacion',['ngMask','ngRoute','ui.bootstrap']).config(function($interpolateProvider,$routeProvider,$locationProvider) {
     $interpolateProvider.startSymbol('//');
     $interpolateProvider.endSymbol('//');
+    
     //$locationProvider.html5Mode(true);
     $routeProvider.
     when('/route', {
