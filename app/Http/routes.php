@@ -53,6 +53,16 @@ Route::group(['middleware' => ['web']], function () {
        //'uses'=>'loginController@consulta',
        'as' =>'consultaLogin'
     ]);
+        Route::post('lista/usuario',[
+       'uses'=>'usuarioController@listaUser',
+       //'uses'=>'loginController@consulta',
+       'as' =>'usuarioController'
+    ]);
+        Route::post('lista/campos/usuario',[
+       'uses'=>'usuarioController@listaCampoUser',
+       //'uses'=>'loginController@consulta',
+       'as' =>'usuarioController'
+    ]);
 });
 
     });

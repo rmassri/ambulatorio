@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 use App\Movie as Movie;
+use App\User;
+use App\Estado;
+use App\Grupo;
 
 class usuarioController extends Controller
 {
@@ -13,13 +17,28 @@ class usuarioController extends Controller
 
 	public function  create(Request $request){
 		//dd($request['json']); die();
-		return view('userGroup.usuario');
+		//return view('userGroup.usuario');
+		return view('layaut.main');
+	}
+
+	public function listaUser(){
+		$usuario=User::all();
+		echo json_encode(['listado'=>$usuario],true);die();
+
 	}
 
 		public function  index(Request $request){
 		return view('layaut.main');
 	}
+	public function listaCampoUser(Request $request){
+		$estado = Estado::all();
+		//var_dump($estado); die();
+		//$grupo = DB::table('grupos')->pluck('id','nombre');
+		$grupo =Grupo::all();
+		echo json_encode(['estado'=>$estado,'grupo'=>$grupo],true);
+		die();
 
+	}
 
 	public function store(Request $request){
 		//$error[]='';
@@ -28,12 +47,12 @@ class usuarioController extends Controller
 		$cedula=isset($request['form']['cedula'])?$request['form']['cedula']:'';
 		$apellido=isset($request['form']['apellido'])?$request['form']['apellido']:'';
 		$telefono_celular=isset($request['form']['telefono_celular'])?$request['form']['telefono_celular']:'';
-		$telefono_fijo=isset($request['form']['telefono_fijo'])?$request['form']['telefono_fijo']:'';
-		$estado=isset($request['form']['estado'])?$request['form']['estado']:'';
+		$telefono_fijo=isset($request['form']['telefono_local'])?$request['form']['telefono_local']:'';
+		$estado=isset($request['form']['estado_id'])?$request['form']['estado_id']:'';
 		$email=isset($request['form']['correo'])?$request['form']['correo']:'';
-		$grupo=isset($request['form']['grupo'])?$request['form']['grupo']:'';
+		$grupo=isset($request['form']['grupo_id'])?$request['form']['grupo_id']:'';
 		$usuario=isset($request['form']['usuario'])?$request['form']['usuario']:'';
-		$clave=isset($request['form']['clave'])?$request['form']['clave']:'';
+		$clave=isset($request['form']['password'])?$request['form']['password']:'';
 		$repetir_clave=isset($request['form']['repetir_clave'])?$request['form']['repetir_clave']:'';
 		$estatus=isset($request['form']['estatus'])?$request['form']['estatus']:'';
 		if($nombre==''){
@@ -94,6 +113,14 @@ class usuarioController extends Controller
       		$statusCode['mensaje']=false;
       		//$statusCode['exito']="error";
       	}else{
+      		//dd($request['form']); die();
+      		$usuario= new User($request['form']);
+      		$ip = $_SERVER['REMOTE_ADDR'];
+      		$usuario->ip=$ip;
+      		$usuario->created_at=date('Y-m-d');
+      		$usuario->updated_at=date('Y-m-d');
+      		$usuario->fecha=date('Y-m-d');
+      		$usuario->save();
       		$statusCode['mensaje']="El registro se ha guardado de forma exitosa";
       		$error=false;
       		

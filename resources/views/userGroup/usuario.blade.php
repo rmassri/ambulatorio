@@ -13,12 +13,12 @@
 <head>
 </head>
 <ol class="breadcrumb" style="width: 89%; margin-left: 12px">
-    <li> <i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
+    <li> <i class="fa fa-dashboard"></i>  <a href="index.html">Inicioooo</a>
     </li>
     <li class="active">Formulario de Usuario</li>
 </ol>
 
-<div class="col-lg-11">
+<div class="col-lg-10">
 <div class="portlet portlet-red">
     <div class="portlet-heading">
         <div class="portlet-title">
@@ -37,6 +37,7 @@
 <div class="col-md-12">
 <label ng-show="mostrarMensajeExito" class="text-success">//mostrarMensajeExito// </label>
 </div>
+<div class="row">
 <div class="form-group col-md-4">
     <label class="col-md-12 control-label">Cédula</label>
     <input type="text" name="cedula" class="form-control" ng-model="dataForm.cedula" placeholder="Cédula">
@@ -54,9 +55,9 @@
     <input type="text" name="apelido" class="form-control" ng-model="dataForm.apellido" placeholder="Apellido">
      <label ng-show="mostrarApellido" class="text-danger">//mostrarApellido// </label>
 </div>
-<div class="row"> </div>
+ </div>
 
-
+<div class="row">
 <div class="col-md-4">
     <label class="col-md-12 control-label">Telefono Fijo</label>
     <input type="text" name="telefono_fijo" class="form-control" ng-model="dataForm.telefono_fijo" placeholder="telefono_fijo" mask='9999-999-99-99'>
@@ -75,8 +76,9 @@
     <input type="text" name="correo" class="form-control" ng-model="dataForm.correo" placeholder="correo">
      <label ng-show="mostrarCorreo" class="text-danger">//mostrarCorreo// </label>
  </div>
+ </div>
 
-<div class="row"> </div>
+<div class="row"> 
 
 <div class="col-md-4 form-group">
     <label class="col-md-12 control-label">Estado</label>
@@ -97,7 +99,8 @@
      <label ng-show="mostrarUsuario" class="text-danger">//mostrarGrupo// </label>
 </div>
 
-<div class="row"> </div>
+</div>
+<div class="row"> 
 
 <div class="form-group col-md-4">
     <label class="col-md-12 control-label">Clave</label>
@@ -121,17 +124,21 @@
     </select>
      <label ng-show="mostrarEstatus" class="text-danger">//mostrarEstatus// </label>
 </div>
+</div>
 
-<div class="row"> </div>
-<div class="form-group col-md-6 text-left">
+<div class="row"> 
+<div class="col-md-6 text-left">
     <a href="#listado_user">
          <span class="btn btn-danger"> volver </span>
     </a>
 </div>
 
- <div class="form-group col-md-6 text-right">
+ <div class="col-md-6 text-right">
  <button ng-click="guardarUsuario()" class="btn btn-success">Registrar</button>
 </div>
+<br> <br>
+</div>
+
 </div>
 </div>
 </div>

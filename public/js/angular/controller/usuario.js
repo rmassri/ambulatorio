@@ -3,7 +3,6 @@
 	angular.module('modulosAplicacion',['ngMask','ngRoute','ui.bootstrap']).config(function($interpolateProvider,$routeProvider,$locationProvider) {
     $interpolateProvider.startSymbol('//');
     $interpolateProvider.endSymbol('//');
-    
     //$locationProvider.html5Mode(true);
     $routeProvider.
     when('/route', {
@@ -13,98 +12,65 @@
         templateUrl: '/template/create_user.html',
         controller: 'miController'
     }).when('/listado_user', {
-        templateUrl: '/template/listado_user.html',
-        controller: 'listadoUsuario'
+        controller: 'listadoUsuario',
+        templateUrl: '/template/listado_user.html'
+        
     }).otherwise({
         redirectTo: '/'
     })
-    }).controller('miController',function($scope){
+    }).controller('miController',function($scope,$http){
+        $http({
+            'url':'/login/lista/campos/usuario',
+            'data':{},
+            'method':'post',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(data){
+            $scope.listaEstado=data.estado;
+            $scope.listaGrupo=data.grupo;
+        }).error(function(error){
+            console.log(error);
+        })
 
-    }).controller('listadoUsuario',function($scope){
-   
-        $scope.listado=[
-        {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-      {
-        nombre:"Richard",
-        apellido:"Massri",
-        cedula:20413974,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Los Vecinos"
-    },
-    {
-        nombre:"Pedro",
-        apellido:"Garcias",
-        cedula:20413975,
-        telefono_celular:04142829420,
-        telefono_fijo:02123833551,
-        direccion:"Macarena"
-    }];
+    }).controller('listadoUsuario',function($scope,$http){
+        $scope.viewby = 3;
+
+       //$scope.nombreM="Rida";
+       console.log($scope.listado2);
+
+        $http({
+            'url':'/login/lista/usuario',
+            'data':{},
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            'method':'POST'
+
+        }).success(function(data){
+            //console.log(data['listado']);
+            $scope.listado=data['listado'];
+            //console.log($scope.listado);
+            $scope.viewby=3;
+            $scope.totalItems = $scope.listado.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = $scope.viewby;
+            $scope.maxSize = 5;
+            $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+            };
+
+            $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            };
+
+            $scope.setItemsPerPage = function(num) {
+            $scope.itemsPerPage = num;
+            $scope.currentPage = 1; //reset to first paghe
+            }
+
+        }).error(function(error){
+            console.log(error);
+
+        });
     //console.log(listado);
-       $scope.viewby = 3;
-  $scope.totalItems = $scope.listado.length;
-  $scope.currentPage = 4;
-  $scope.itemsPerPage = $scope.viewby;
-  $scope.maxSize = 5;
-  $scope.setPage = function (pageNo) {
-    $scope.currentPage = pageNo;
-  };
-
-  $scope.pageChanged = function() {
-    console.log('Page changed to: ' + $scope.currentPage);
-  };
-
-$scope.setItemsPerPage = function(num) {
-  $scope.itemsPerPage = num;
-  $scope.currentPage = 1; //reset to first paghe
-}
+       
 
 }).controller('GuardarUsuarioController',function($scope,$http,$window){
     $scope.nombre="holaaa";
@@ -129,7 +95,7 @@ $scope.setItemsPerPage = function(num) {
             }
         });
 
-        $scope.$watchGroup(['dataForm.clave','dataForm.repetir_clave'],function(nuevo,anterio){
+        $scope.$watchGroup(['dataForm.password','dataForm.repetir_clave'],function(nuevo,anterio){
             if(!nuevo[0] || !nuevo[1]) return;
             if(nuevo[0]!==nuevo[1]){
                 $scope.mostrarRepetirClave="Las Claves no coinciden";
@@ -149,12 +115,31 @@ $scope.setItemsPerPage = function(num) {
             }
         });
 
+        
+
         $scope.$watch('dataForm.cedula',function(nuevo,anterior){
             if(!nuevo) return;
             if(/^[A-Za-z\_\-\.\s\xF1\xD1]+$/.test(nuevo)){
                 $scope.mostrarCedula="La cedula debe ser solo numerica";
             }else{
                 $scope.mostrarCedula=false;
+            }
+        });
+
+        $scope.$watch('dataForm.telefono_local',function(nuevo,anterior){
+            if(!nuevo) return;
+            if(/^[A-Za-z\_\-\.\s\xF1\xD1]+$/.test(nuevo)){
+                $scope.mostrarTelefonoFijo="El telefono local debe ser solo numerica";
+            }else{
+                $scope.mostrarTelefonoFijo=false;
+            }
+        });
+        $scope.$watch('dataForm.telefono_celular',function(nuevo,anterior){
+            if(!nuevo) return;
+            if(/^[A-Za-z\_\-\.\s\xF1\xD1]+$/.test(nuevo)){
+                $scope.mostrarTelefonoCelular="El telefono celular debe ser solo numerica";
+            }else{
+                $scope.mostrarTelefonoCelular=false;
             }
         });
        $scope.response_captcha = null;

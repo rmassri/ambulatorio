@@ -2,24 +2,26 @@
 <html>
 <head>
 </head>
-<ol class="breadcrumb" style="width: 89%; margin-left: 12px">
+<div class="col-md-10">
+<ol class="breadcrumb">
     <li> <i class="fa fa-dashboard"></i>  <a href="#">Inicio</a>
     </li>
     <li class="active">Formulario de Usuario</li>
 </ol>
+</div>
 
-<div class="col-lg-11">
+<div class="col-lg-10">
 <div class="portlet portlet-green">
     <div class="portlet-heading">
         <div class="portlet-title">
         <h4>Registrar Usuario</h4>
         </div>
         <div class="portlet-widgets">
-        <a href="#formControls" data-parent="#accordion" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+        <a href="#create_user" data-parent="#accordion" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
         </div>
         <div class="clearfix"></div>
     </div>
-<div class="panel-collapse in" id="formControls" style="height: auto;">
+<div class="panel-collapse in" id="create_user" style="height: auto;">
 <div class="portlet-body" style="height:auto;">
 
 <div ng-controller="GuardarUsuarioController">
@@ -27,6 +29,7 @@
 <div class="col-md-12">
 <label ng-show="mostrarMensajeExito" class="text-success">//mostrarMensajeExito// </label>
 </div>
+<div class="row">
 <div class="form-group col-md-4">
     <label class="col-md-12 control-label">Cédula</label>
     <input type="text" name="cedula" class="form-control" ng-model="dataForm.cedula" placeholder="Cédula">
@@ -44,12 +47,12 @@
     <input type="text" name="apelido" class="form-control" ng-model="dataForm.apellido" placeholder="Apellido">
      <label ng-show="mostrarApellido" class="text-danger">//mostrarApellido// </label>
 </div>
-<div class="row"> </div>
+ </div>
 
-
+<div class="row">
 <div class="col-md-4">
     <label class="col-md-12 control-label">Telefono Fijo</label>
-    <input type="text" name="telefono_fijo" class="form-control" ng-model="dataForm.telefono_fijo" placeholder="telefono_fijo" mask='9999-999-99-99'>
+    <input type="text" name="telefono_local" class="form-control" ng-model="dataForm.telefono_local" placeholder="telefono local" mask='9999-999-99-99'>
      <label ng-show="mostrarTelefonoFijo" class="text-danger">//mostrarTelefonoFijo// </label>
 </div>
 
@@ -66,17 +69,26 @@
      <label ng-show="mostrarCorreo" class="text-danger">//mostrarCorreo// </label>
  </div>
 
-<div class="row"> </div>
+ </div>
 
-<div class="col-md-4 form-group">
+<div class="row">
+<div class="form-group col-md-4">
     <label class="col-md-12 control-label">Estado</label>
-    <input type="text" name="estado" class="form-control" ng-model="dataForm.estado" placeholder="Estado">
+    <select name="grupo" class="form-control" ng-model="dataForm.estado_id">
+        <option value="">Seleccione</option>
+        <option ng-model="listaEstado.id" value="//listaEstado.id//" ng-repeat="listaEstado in listaEstado">//listaEstado.nombre//</option>
+    </select>
      <label ng-show="mostrarEstado" class="text-danger">//mostrarEstado// </label>
 </div>
 
-<div class="col-md-4 form-group">
+
+
+<div class="form-group col-md-4">
     <label class="col-md-12 control-label">Grupo de Usuario</label>
-    <input type="text" name="grupo" class="form-control" ng-model="dataForm.grupo" placeholder="Grupo">
+    <select name="grupo_id" class="form-control" ng-model="dataForm.grupo_id">
+        <option value="">Seleccione</option>
+        <option value="//listaGrupo.id//" ng-model="listaGrupo.id" ng-repeat="listaGrupo in listaGrupo">//listaGrupo.nombre//</option>
+    </select>
      <label ng-show="mostrarGrupo" class="text-danger">//mostrarGrupo// </label>
 </div>
 
@@ -87,11 +99,11 @@
      <label ng-show="mostrarUsuario" class="text-danger">//mostrarGrupo// </label>
 </div>
 
-<div class="row"> </div>
-
+ </div>
+<div class="row">
 <div class="form-group col-md-4">
     <label class="col-md-12 control-label">Clave</label>
-    <input type="text" name="clave" class="form-control" ng-model="dataForm.clave" placeholder="Clave">
+    <input type="text" name="clave" class="form-control" ng-model="dataForm.password" placeholder="Clave">
      <label ng-show="mostrarClave" class="text-danger">//mostrarClave// </label>
 </div>
 
@@ -112,7 +124,21 @@
      <label ng-show="mostrarEstatus" class="text-danger">//mostrarEstatus// </label>
 </div>
 
-<div class="row"> </div>
+ </div>
+
+
+<div class="row">
+<div class="form-group col-md-12 col-lg-12">
+    <label class="col-md-12 control-label">Direccion</label>
+    <textarea style="height: 100px;" type="text" name="direccion" class="form-control" ng-model="dataForm.direccion" placeholder="direccion">
+    </textarea>
+     <label ng-show="mostrarDireccion" class="text-danger">//mostrarDireccion// </label>
+</div>
+</div>
+
+
+
+ <div class="row">
 <div class="form-group col-md-6 text-left">
     <a href="#listado_user">
          <span class="btn btn-danger"> volver </span>
@@ -127,6 +153,5 @@
 </div>
 </div>
 </div>
+</div>
 </html>
-
-@endsection

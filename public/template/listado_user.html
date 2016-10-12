@@ -24,42 +24,32 @@
                             <div class="col-md-12 text-right">
                             <label>buscar:<input type="text" aria-controls="map-table-example" class="search-query" ng-model="filtro"> </label>
                             </div>
-                            <div class="row table"> 
-                                    <div class="table table-hover table table-striped" ng-repeat="listado in listado.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:filtro">
-                                    <div class="col-md-2">
-                                    <label class="col-md-12 table table-hover"> Nombre </label>
-                                    <div class="col-md-12">
-                                    //listado.nombre//
-                                    </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                    <label class="col-md-12"> Apellido </label>
-                                    <div class="col-md-12">
-                                    //listado.apellido//
-                                    </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                    <label class="col-md-12 control-label"> Cédula </label>
-                                    <div class="col-md-12">
-                                    //listado.cedula//
-                                    </div>
-                                    </div>
-                                     <div class="col-md-2">
-                                     <label class="col-md-12"> Telefono Celular </label>
-                                     <div class="col-md-12">
-                                    //listado.telefono_celular//
-                                    </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                    <label class="col-md-12"> Telefono Fijo </label>
-                                    <div class="col-md-12">
-                                    //listado.telefono_fijo//
-                                    </div>
-                                    </div>
-                                    <div class="row"></div>
-                                    </div>
+                          <div class="row">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
 
+                                           <thead ng-hide="(listado | filter:filtro).length == 0">
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Telefono Celular</th>
+                                                <th>Telefono Fijo</th>
+                                            </tr>
+                                        </thead>
 
+                                    <tbody ng-repeat="listado in listado.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:filtro">
+                                    <p ng-show="(listado | filter:filtro).length == 0">No se encontraron resultados!</p>
+                                            <tr>
+                                                <th>//listado.nombre//</th>
+                                                <th>//listado.apellido//</th>
+                                                <th>//listado.cedula//</th>
+
+                                                <th>//listado.telefono_celular//</th>
+                                                <th>//listado.telefono_fijo//</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +63,6 @@
  <div class="col-md-10 text-right">
     <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
     <pre class="text-center">Seleccion de pagina numero: //currentPage//</pre>
-    <button class="btn btn-info" ng-click="setPage(3)">Presente: 3</button>
 
     <hr />
     <h4>Pagina</h4>
